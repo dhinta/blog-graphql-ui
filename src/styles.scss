@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+.text-primary {
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.blog-row {
+  margin-top: 1em;
+  &:after {
+    border-bottom: 1px solid #343a40;
+    content: ' ';
+    display: block;
+  }
+  &:last-child {
+    &:after {
+      border-bottom: none;
+    }
+  }
+  p {
+    margin-top: 0.5em;
+  }
+  .edit-icon {
+    width: 50px;
+    background-image: url('/assets/images/edit.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+

@@ -1,0 +1,12 @@
+.blog-row {
+  &:after{
+    border-bottom: none;
+  }
+}
+
+.comment-row {
+  margin-bottom: 1em;
+  .comment-text {
+    margin-bottom: 0.5em;
+  }
+}

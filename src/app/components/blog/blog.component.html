@@ -1,1 +1,51 @@
-<p>blog works!</p>
+<div class="container-fluid">
+  <div class="container mt-5">
+    <div class="row bg-light py-3">
+      <div class="col-8 text-left">
+        <h2>All posts</h2>
+      </div>
+      <div class="col-4 text-right">
+        <button
+          type="button"
+          class="btn btn-primary btn-lg"
+          (click)="newTopic(true)"
+        >
+          Post a topic
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container mt-5">
+    <div class="row bg-light py-3">
+      <div class="col-12">
+        <div class="blog-row">
+          <div class="title">
+            <a href="#" class="text-primary">this is my first topic</a>
+            <a href="#" class="text-primary small text ml-2">(3 comments)</a>
+            <a href="#" class="created-by text-primary float-right">Debasish Chowdhury</a>
+          </div>
+          <p class="">
+            Curious which components explicitly require jQuery, our JS, and
+            Popper.js? Click the show components link below. If you’re at all
+            unsure about the general page structure, keep reading for an example
+            page template.
+          </p>
+        </div>
+        <div class="blog-row">
+          <a href="#" class="text-primary">this is my first topic</a>
+          <a href="#" class="text-primary small text ml-2">(3 comments)</a>
+          <a href="#" class="created-by text-primary float-right">Debasish Chowdhury</a>
+          <p class="">
+            Curious which components explicitly require jQuery, our JS, and
+            Popper.js? Click the show components link below. If you’re at all
+            unsure about the general page structure, keep reading for an example
+            page template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
