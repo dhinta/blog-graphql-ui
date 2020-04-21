@@ -19,6 +19,7 @@
           class="nav-link"
           [routerLink]="['/registration']"
           routerLinkActive="active"
+          *ngIf="!isLoggedin$ | async"
           >Signup</a
         >
       </li>
@@ -27,6 +28,7 @@
           class="nav-link"
           [routerLink]="['/dashboard']"
           routerLinkActive="active"
+          *ngIf="isLoggedin$ | async"
           >Dashboard</a
         >
       </li>
@@ -38,7 +40,11 @@
     </ul>
     <form class="form-inline">
       <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">
+      <button
+        class="btn btn-outline-info my-2 my-sm-0"
+        type="submit"
+        *ngIf="isLoggedin$ | async"
+      >
         Logout
       </button>
     </form>

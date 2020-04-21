@@ -8,6 +8,7 @@
         <button
           type="button"
           class="btn btn-primary btn-lg"
+          *ngIf="isLoggedin$ | async"
           (click)="newTopic(true)"
         >
           Post a topic
@@ -25,7 +26,9 @@
           <div class="title">
             <a href="#" class="text-primary">this is my first topic</a>
             <a href="#" class="text-primary small text ml-2">(3 comments)</a>
-            <a href="#" class="created-by text-primary float-right">Debasish Chowdhury</a>
+            <a href="#" class="created-by text-primary float-right"
+              >Debasish Chowdhury</a
+            >
           </div>
           <p class="">
             Curious which components explicitly require jQuery, our JS, and
@@ -37,7 +40,9 @@
         <div class="blog-row">
           <a href="#" class="text-primary">this is my first topic</a>
           <a href="#" class="text-primary small text ml-2">(3 comments)</a>
-          <a href="#" class="created-by text-primary float-right">Debasish Chowdhury</a>
+          <a href="#" class="created-by text-primary float-right"
+            >Debasish Chowdhury</a
+          >
           <p class="">
             Curious which components explicitly require jQuery, our JS, and
             Popper.js? Click the show components link below. If you’re at all

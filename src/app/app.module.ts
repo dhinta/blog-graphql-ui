@@ -10,6 +10,9 @@ import { BlogComponent } from './components/blog/blog.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { BlogPostComponent } from './components/blog-post/blog-post.component';
     BlogComponent,
     CommentsComponent,
     RegistrationComponent,
-    BlogPostComponent
+    BlogPostComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,26 +6,43 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthenticationGuardService } from './services/guards/authentication-guard.service';
 
-const routes: Routes = [{
-  path: '',
-  component: LoginComponent
-}, {
-  path: 'registration',
-  component: RegistrationComponent
-}, {
-  path: 'dashboard',
-  component: DashboardComponent
-}, {
-  path: 'blogs',
-  component: BlogComponent
-}, {
-  path: 'blog/:id',
-  component: BlogPostComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthenticationGuardService]
+  },
+  {
+    path: 'blogs',
+    component: BlogComponent,
+  },
+  {
+    path: 'blog/:id',
+    component: BlogPostComponent,
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/404'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
