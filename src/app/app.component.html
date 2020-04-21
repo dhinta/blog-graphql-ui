@@ -44,6 +44,7 @@
         class="btn btn-outline-info my-2 my-sm-0"
         type="submit"
         *ngIf="isLoggedin$ | async"
+        (click)="signout()"
       >
         Logout
       </button>

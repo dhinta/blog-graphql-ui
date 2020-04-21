@@ -13,7 +13,7 @@ export class StorageService {
 
   getSeesion<T>(key: string): T | null {
     const val = sessionStorage.getItem(key);
-    return val ? JSON.parse(val) : null ;
+    return typeof val === 'object' ? JSON.parse(val) : val;
   }
 
   setLocal<T>(key: string, value: T) {
@@ -23,6 +23,10 @@ export class StorageService {
 
   getLocal<T>(key: string): T | null {
     const val = localStorage.getItem(key);
-    return val ? JSON.parse(val) : null ;
+    return typeof val === 'object' ? JSON.parse(val) : val;
+  }
+
+  removeLocal(key: string) {
+    localStorage.removeItem(key);
   }
 }
