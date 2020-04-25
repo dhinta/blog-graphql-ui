@@ -38,17 +38,18 @@
         >
       </li>
     </ul>
-    <form class="form-inline">
-      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-      <button
-        class="btn btn-outline-info my-2 my-sm-0"
-        type="submit"
-        *ngIf="isLoggedin$ | async"
-        (click)="signout()"
-      >
-        Logout
-      </button>
-    </form>
+    <div class="mr-sm-2 text-white" *ngIf="isLoggedin$ | async">
+      Hi {{ (user$ | async).name }}
+    </div>
+    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+    <button
+      class="btn btn-outline-info my-2 my-sm-0"
+      type="submit"
+      *ngIf="isLoggedin$ | async"
+      (click)="signout()"
+    >
+      Logout
+    </button>
   </div>
 </nav>
 

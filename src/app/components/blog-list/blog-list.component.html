@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="container mt-5">
+    <div class="row bg-light py-3">
+      <div class="col-12">
+
+        <ng-container *ngIf="blogs.length;">
+          <div class="blog-row" *ngFor="let blog of blogs">
+            <div class="title">
+              <a [routerLink]="['/blog', blog._id]"  class="text-primary">{{blog.topic}}</a>
+              <a href="#" class="text-primary small text ml-2">(3 comments)</a>
+              <a class="edit-icon float-right" href="#" (click)="edit($event, blog)">&nbsp;</a>
+              <a class="delete-icon float-right" href="#" (click)="delete($event, blog)">&nbsp;</a>
+            </div>
+            <p class="">{{blog.details}}</p>
+          </div>
+        </ng-container >
+        <ng-container *ngIf="!(blogs.length)">No blog post</ng-container>
+      </div>
+    </div>
+  </div>
+</div>

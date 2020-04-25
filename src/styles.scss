@@ -4,6 +4,9 @@
     text-decoration: none !important;
   }
 }
+.text-white {
+  color: #fff;
+}
 
 .blog-row {
   margin-top: 1em;
@@ -21,10 +24,23 @@
     margin-top: 0.5em;
   }
   .edit-icon {
-    width: 50px;
+    width: 20px;
+    height: 15px;
+    margin-top: 5px;
     background-image: url('/assets/images/edit.png');
     background-repeat: no-repeat;
     background-size: contain;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .delete-icon {
+    width: 25px;
+    background-image: url('/assets/images/delete.png');
+    background-repeat: no-repeat;
+    background-size: contain;&:hover {
+      text-decoration: none;
+    }
   }
 }
 

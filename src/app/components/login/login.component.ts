@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
     if (res.success) {
       this.storge.setLocal<string>('token', res.token);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['dashboard']);
     }
   }
 

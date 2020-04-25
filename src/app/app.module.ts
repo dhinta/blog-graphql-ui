@@ -14,6 +14,8 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { BlogFormComponent } from './components/blog-form/blog-form.component';
+import { BlogListComponent } from './components/blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     RegistrationComponent,
     BlogPostComponent,
     NotFoundComponent,
+    BlogFormComponent,
+    BlogListComponent,
   ],
   imports: [
     BrowserModule,

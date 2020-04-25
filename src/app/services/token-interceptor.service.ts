@@ -25,7 +25,7 @@ export class TokenInterceptorService implements HttpInterceptor {
           Authorization: `Bearer ${this.storage.getLocal('token')}`,
         },
       });
-      return next.handle(request);
     }
+    return next.handle(request);
   }
 }

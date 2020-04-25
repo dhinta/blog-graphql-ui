@@ -16,7 +16,7 @@ export class AuthenticationService {
   public isLoggedin$: Observable<boolean>;
 
   constructor(private apollo: Apollo) {
-    this.user$ = new BehaviorSubject<User>(AppConstant.AnonymousUser);
+    this.user$ = new BehaviorSubject<User>(AppConstant.data.AnonymousUser);
     this.isLoggedin$ = this.user$.pipe(map((user) => !!user.email));
   }
 
@@ -25,7 +25,7 @@ export class AuthenticationService {
   }
 
   login(email, password): Observable<any> {
-    // TODO: CHange Type "any"
+    // TODO: Change Type "any"
     const loginMutation = gql`
       mutation data($email: String!, $password: String!) {
         authenticate(email: $email, password: $password) {
@@ -55,7 +55,7 @@ export class AuthenticationService {
   }
 
   getLoggedInUserInfo(): Observable<any> {
-    // TODO: CHange Type "any"
+    // TODO: Change Type "any"
     const userInfoQuery = gql`
       query {
         getLoggedInUserInfo {
@@ -79,8 +79,7 @@ export class AuthenticationService {
         query: userInfoQuery,
       })
       .valueChanges.pipe(
-        map((res) => res.data),
-        catchError((err, caught) => caught)
+        map((res) => res.data)
       );
   }
 

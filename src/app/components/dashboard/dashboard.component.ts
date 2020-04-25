@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { map } from 'rxjs/internal/operators/map';
-import { User } from 'src/app/models/user';
+import { BlogService } from 'src/app/services/blog.service';
+import { Blog } from 'src/app/models/blog';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,21 +10,32 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  public form: FormGroup;
-  public createTopic: boolean;
+  public blogs: Blog[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthenticationService
-  ) {
-    this.form = this.formBuilder.group({
-      topic: ['', Validators.required],
-      details: ['', Validators.required],
-    });
-    this.createTopic = false;
-  }
+    private authService: AuthenticationService,
+    private blogService: BlogService
+  ) {}
 
   ngOnInit() {
+    // Get Loggedin User information
+    this.getLoggedInUserInfo();
+    this.getBlogs();
+  }
+
+  getBlogs() {
+    this.blogService
+      .getBlogs()
+      .pipe(map((res) => res.userBlogs))
+      .subscribe(
+        (res) => {
+          this.blogs = res.blogs;
+        },
+        (err) => console.log(err)
+      );
+  }
+
+  getLoggedInUserInfo() {
     this.authService
       .getLoggedInUserInfo()
       .pipe(map((res) => res.getLoggedInUserInfo))
@@ -34,12 +45,7 @@ export class DashboardComponent implements OnInit {
       );
   }
 
-  onSubmit() {
-    console.log(this.form.valid);
-  }
-
-  newTopic(createTopic: boolean) {
-    this.createTopic = createTopic;
-    this.form.reset();
+  onSave(event) {
+    this.getBlogs();
   }
 }

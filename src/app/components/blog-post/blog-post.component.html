@@ -1,27 +1,16 @@
 <div class="container-fluid">
   <div class="container mt-5">
     <div class="row bg-light py-3">
-      <div class="col-12">
+      <div class="col-12" *ngIf="blog">
         <div class="blog-row">
           <div class="title">
-            <h2 class="text-primary">this is my first topic</h2>
+            <h2 class="text-primary">{{blog.topic}}</h2>
             <h5>
               By
-              <a href="#" class="created-by text-primary">Debasish Chowdhury</a>
+              <a href="#" class="created-by text-primary">{{blog.createdBy}}</a>
             </h5>
           </div>
-          <p class="body-text">
-            Curious which components explicitly require jQuery, our JS, and
-            Popper.js? Click the show components link below. If you’re at all
-            unsure about the general page structure, keep reading for an example
-            page template. Curious which components explicitly require jQuery,
-            our JS, and Popper.js? Click the show components link below. If
-            you’re at all unsure about the general page structure, keep reading
-            for an example page template. Curious which components explicitly
-            require jQuery, our JS, and Popper.js? Click the show components
-            link below. If you’re at all unsure about the general page
-            structure, keep reading for an example page template.
-          </p>
+          <p class="body-text" [innerHTML]="blog.details"></p>
 
           <h4 href="#" class="text-primary">Comments</h4>
 

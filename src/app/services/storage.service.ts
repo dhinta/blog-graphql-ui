@@ -29,4 +29,16 @@ export class StorageService {
   removeLocal(key: string) {
     localStorage.removeItem(key);
   }
+
+  removeSession(key: string) {
+    sessionStorage.removeItem(key);
+  }
+
+  clearLocal() {
+    localStorage.clear();
+  }
+
+  clearSession() {
+    sessionStorage.clear();
+  }
 }
