@@ -5,3 +5,9 @@ export interface Blog {
   date: string;
   createdBy?: string;
 }
+
+export interface Comment {
+  _id: string;
+  comment: string;
+  postedBy: string;
+}

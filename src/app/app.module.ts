@@ -16,6 +16,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
+import { CommentFormComponent } from './comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BlogListComponent } from './components/blog-list/blog-list.component';
     NotFoundComponent,
     BlogFormComponent,
     BlogListComponent,
+    CommentFormComponent,
   ],
   imports: [
     BrowserModule,

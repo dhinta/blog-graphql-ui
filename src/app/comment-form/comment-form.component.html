@@ -1,0 +1,48 @@
+
+
+<div class="container-fluid comment-box">
+  <div class="container mt-5">
+    <div class="row bg-light py-3" *ngIf="isError">
+      <div class="col-12">
+        <div class="alert alert-danger">
+          Something went wrong. please try again.
+        </div>
+      </div>
+    </div>
+    <div class="row bg-light py-3">
+      <div class="col-12">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form">
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="commentInput"
+              aria-describedby="commentHelp"
+              placeholder="What I think.."
+              formControlName="comment"
+              rows="8"
+            ></textarea>
+            <div
+              id="commentHelp"
+              class="alert alert-danger mt-1"
+              *ngIf="
+                form.get('comment').touched &&
+                form.get('comment').errors &&
+                form.get('comment').errors.required
+              "
+            >
+              Please provide a comment
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button
+            type="button"
+            class="btn btn-primary ml-2"
+            (click)="cancel()"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

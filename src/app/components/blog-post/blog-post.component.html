@@ -4,39 +4,23 @@
       <div class="col-12" *ngIf="blog">
         <div class="blog-row">
           <div class="title">
-            <h2 class="text-primary">{{blog.topic}}</h2>
+            <h2 class="text-primary">{{ blog.topic }}</h2>
             <h5>
               By
-              <a href="#" class="created-by text-primary">{{blog.createdBy}}</a>
+              <a href="#" class="created-by text-primary">{{
+                blog.createdBy
+              }}</a>
             </h5>
           </div>
           <p class="body-text" [innerHTML]="blog.details"></p>
-
-          <h4 href="#" class="text-primary">Comments</h4>
-
-          <hr />
         </div>
 
-        <div class="comment-wrapper">
-          <div class="comment-row">
-            <p class="comment-text">
-              Curious which components explicitly require jQuery, our JS, and
-              Popper.js? Click the show components link below. If you’re at all
-              unsure about the general page structure, keep reading for an
-              example page template.
-            </p>
-            <a href="#" class="text-primary">Debasish Chowdhury</a>
-          </div>
+        <h4 href="#" class="text-primary">Comments</h4>
+        <hr />
 
-          <div class="comment-row">
-            <p class="comment-text">
-              Curious which components explicitly require jQuery, our JS, and
-              Popper.js? Click the show components link below. If you’re at all
-              unsure about the general page structure, keep reading for an
-              example page template.
-            </p>
-            <a href="#" class="text-primary">Debasish Chowdhury</a>
-          </div>
+        <div class="comment-wrapper">
+          <app-comment-form></app-comment-form>
+          <app-comments [comments]="blog.comments"></app-comments>
         </div>
       </div>
     </div>

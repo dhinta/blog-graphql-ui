@@ -20,7 +20,11 @@ export class BlogService {
               _id
               topic
               details
-              date
+              date,
+              comments {
+                comment
+                postedBy
+              }
             }
             success
             errors {
@@ -37,8 +41,12 @@ export class BlogService {
               _id
               topic
               details
-              date,
+              date
               createdBy
+              comments {
+                comment
+                postedBy
+              }
             }
             success
             errors {
@@ -83,6 +91,17 @@ export class BlogService {
           }
         }
       `,
+      saveComment: gql`
+        mutation data($comment: String!, $blogId: String!) {
+          createComment(comment: { comment: $comment, blogId: $blogId }) {
+            success
+            errors {
+              message
+              type
+            }
+          }
+        }
+      `,
     },
   };
 
@@ -119,8 +138,8 @@ export class BlogService {
         // TODO: Add a return type 'https://www.youtube.com/watch?v=Wc7bJ2uv694&t=341s'
         query: this.gql.query.getBlog,
         variables: {
-          id
-        }
+          id,
+        },
       })
       .valueChanges.pipe(map((res) => res.data));
   }
@@ -133,6 +152,28 @@ export class BlogService {
         query: this.gql.query.getBlogs,
       })
       .valueChanges.pipe(map((res) => res.data));
+  }
+
+  public postComment(comment: string, blogId: string): Observable<any> {
+    // TODO: Change Type "any"
+    return this.apollo
+      .mutate({
+        // TODO: Add a return type 'https://www.youtube.com/watch?v=Wc7bJ2uv694&t=341s'
+        mutation: this.gql.mutation.saveComment,
+        variables: {
+          comment,
+          blogId,
+        },
+        refetchQueries: [
+          {
+            query: this.gql.query.getBlog,
+            variables: {
+              id: blogId,
+            },
+          },
+        ],
+      })
+      .pipe(map((res) => res.data));
   }
 
   public saveBlog(topic: string, details: string): Observable<any> {

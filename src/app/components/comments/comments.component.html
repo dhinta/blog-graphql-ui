@@ -1,1 +1,4 @@
-<p>comments works!</p>
+<div class="comment-row" *ngFor="let item of comments">
+  <p class="comment-text">{{item.comment}}</p>
+  <a href="#" class="text-primary">{{item.postedBy}}</a>
+</div>
