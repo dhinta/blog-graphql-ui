@@ -7,13 +7,6 @@ pipeline {
             bat 'npm run lint'
           }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing starts..'
-                bat 'npm run test'
-                echo 'Testing ends....'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building starts..'
