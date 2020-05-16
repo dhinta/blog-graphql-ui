@@ -25,9 +25,9 @@ pipeline {
             steps {
                 echo 'Deploying  starts....'
                 echo 'Copying content....'
-                bat 'xcopy dist C:\Users\Debasish\Desktop\deploy'
+                bat 'xcopy dist C:\\Users\\Debasish\\Desktop\\deploy'
                 echo 'switch to target folder....'
-                bat 'cd "C:\Users\Debasish\Desktop\deploy\dist"'
+                bat 'cd "C:\\Users\\Debasish\\Desktop\\deploy\\dist"'
                 echo 'start server....'
                 bat 'http-server --p 3000'
                 echo 'Deploying  ends....'
