@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Deploying  starts....'
                 echo 'Copying content....'
-                bat 'xcopy "dist" C:\\Users\\Debasish\\Desktop\\deploy /e /i /h'
+                bat 'xcopy "dist" C:\\Users\\Debasish\\Desktop\\deploy /e /i /h /Y'
                 echo 'switch to target folder....'
                 bat 'cd "C:\\Users\\Debasish\\Desktop\\deploy\\blog-graphql-ui"'
                 echo 'start server....'
