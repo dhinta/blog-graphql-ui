@@ -20,7 +20,7 @@ pipeline {
                 echo 'Copying content....'
                 bat 'xcopy "dist" C:\\Users\\Debasish\\Desktop\\deploy /e /i /h'
                 echo 'switch to target folder....'
-                bat 'cd "C:\\Users\\Debasish\\Desktop\\deploy\\dist\\blog-graphql-ui"'
+                bat 'cd "C:\\Users\\Debasish\\Desktop\\deploy\\blog-graphql-ui"'
                 echo 'start server....'
                 bat 'http-server --p 3000'
                 echo 'Deploying  ends....'
