@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building starts..'
-                sh 'npm run build'
+                sh 'npm run jenkinsbuild'
                 echo 'Building ends..'
             }
         }
