@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        nodejs 'node 14'
+        nodejs 'latest node'
     }
     stages {
         stage('Npm Setup') {
