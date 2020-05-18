@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Npm Setup') {
           steps {
-            sh 'printenv'
+            sh 'npm'
           }
         }
         stage('Code Quality') {
