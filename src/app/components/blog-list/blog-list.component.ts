@@ -9,7 +9,7 @@ import { map } from 'rxjs/internal/operators/map';
   styleUrls: ['./blog-list.component.scss'],
 })
 export class BlogListComponent implements OnInit {
-  @Input() blogs: Blog;
+  @Input() blogs: Blog[];
   constructor(private blogService: BlogService) {}
 
   ngOnInit() {}
