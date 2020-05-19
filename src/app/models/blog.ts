@@ -4,7 +4,7 @@ export interface Blog {
   details: string;
   date: string;
   createdBy?: string;
-  comments: Comment[]
+  comments: Comment[];
 }
 
 export interface Comment {

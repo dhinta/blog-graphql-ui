@@ -19,7 +19,7 @@
           class="nav-link"
           [routerLink]="['/registration']"
           routerLinkActive="active"
-          *ngIf="!(isLoggedin$ | async)"
+          *ngIf="(isLoggedin$ | async) === (false | null | undefined)"
           >Signup</a
         >
       </li>
