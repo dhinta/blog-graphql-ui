@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "jenkinsbuild": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build",
+    "jenkinsbuild": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -33,6 +33,8 @@
     "graphql": "^14.6.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "0.803.20",
+    "@angular/cli": "8.3.20",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
     "@types/jasmine": "~3.3.8",
