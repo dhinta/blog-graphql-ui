@@ -26,7 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying  starts....'
-                sh 's3Upload(file:"graphql-blog/dist", bucket:"graphql-ng-demo", path:"")'
+                sh 'aws s3 sync dist/blog-graphql-ui s3://graphql-ng-demo'
                 echo 'Deploying  ends....'
             }
         }
